@@ -130,7 +130,7 @@ SpacesInLineCommentPrefix:
   Minimum: 1
   Maximum: -1
 SpacesInParentheses: false
-Standard: c++23
+Standard: c++20
 TabWidth: 4
 UseCRLF: false
 UseTab: Never
