@@ -2,28 +2,6 @@
 
 The RingBuffer class is a thread-safe concurrent queue that supports multiple writers (producers) and multiple readers (consumers). The RingBuffer also has optimizations for single writers, single readers, and single writers that do batch insertion.
 
-## Building
-
-### System pre-requisites
-As root install cmake3 and devtoolset-9-libatomic-devel
-```
-yum install cmake3 devtoolset-9-libatomic-devel
-```
-
-### Build
-From the root of the repo:
-```
-rez2
-rez-env cuda-11 gcc-9
-cmake3 ./
-make
-```
-
-### Run
-```
-./RingBuffer
-```
-
 ## Class Template Parameters
 
     template <typename T, std::size_t log_n_elements, typename Traits>
