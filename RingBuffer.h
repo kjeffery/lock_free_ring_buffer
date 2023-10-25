@@ -552,13 +552,9 @@ private:
     // iterate over [first, last] when using forward_iterators.
     // Precondition: This function should only be called when there is enough room to add num_elements.
     template <typename Iterator>
+    requires std::forward_iterator<Iterator>
     [[nodiscard]] bool try_push_batch_impl(Iterator first, Iterator last, index_t num_elements)
     {
-        // TODO: C++20: This is a good case for concepts.
-        static_assert(std::is_base_of<std::forward_iterator_tag,
-                          typename std::iterator_traits<Iterator>::iterator_category>::value,
-                      "This only works for forward iterators or better");
-
         // We pass in num_elements even though it can be derived through the iterators for efficiency in the case of
         // forward iterators.
         assert(std::distance(first, last) == num_elements);
